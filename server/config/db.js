@@ -1,5 +1,6 @@
 var mysql = require("mysql2"); //Requerimos la librería mysql
 require("dotenv").config();
+
 //Configuración de la conexión con nuestro mysql workbench
 var connection = mysql.createConnection({
   host: process.env.DB_HOST,
