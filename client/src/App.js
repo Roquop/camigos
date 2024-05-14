@@ -7,7 +7,7 @@ function App() {
   const [prueba, setPrueba] = useState("nada")
   useEffect(() => {
     axios
-      .get("http://localhost:4000/users/admin/prueba")
+      .get("http://camigos-production.up.railway.app/users/admin/prueba")
       .then((res) => {setPrueba(res.data.result[0].nombre)})
       .catch((err) => console.log(err));
   }, []);
