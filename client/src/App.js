@@ -1,7 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import axios from "axios";
 import React, {useEffect, useState} from "react";
+import { CamigosBrowser } from './routes/CamigosBrowser';
 
 function App() {
   const [prueba, setPrueba] = useState("nada")
@@ -12,23 +12,10 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
   
+  <p>{prueba}</p>
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <p>{prueba}</p>
-          Learn React o no
-        </a>
-      </header>
+     <CamigosBrowser/>
     </div>
   );
 }
