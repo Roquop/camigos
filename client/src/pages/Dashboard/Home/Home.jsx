@@ -6,8 +6,8 @@ export const Home = () => {
   const [prueba, setPrueba] = useState("nada");
   useEffect(() => {
     axios
-      // .get('http://localhost:4000/users/admin/prueba')
-      .get('https://camigos-production.up.railway.app/users/admin/prueba')
+      .get('http://localhost:4000/users/admin/prueba')
+      // .get('https://camigos-production.up.railway.app/users/admin/prueba')
       .then((res) => {
         setPrueba(res.data.result[0].name); 
         console.log(res);
