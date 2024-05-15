@@ -1,5 +1,5 @@
 import React from "react";
-import "./camigosNavBar.scss";
+import "./style/camigosNavBar.scss";
 import { Button, Container, Nav, Navbar, Row, Col } from "react-bootstrap";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
