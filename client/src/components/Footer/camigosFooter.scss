@@ -1,0 +1,23 @@
+#footer {
+  background-color: rgb(14, 14, 14);
+  position: absolute;
+  width: 100%;
+  align-items: center;
+  bottom: 0;
+  .logos_container {
+    display: flex;
+    height: 200px;
+    align-items: center;
+    justify-content: space-around;
+    img {
+      width: 75px;
+    }
+  }
+  .disclaimer {
+    display: flex;
+    justify-content: space-around;
+    p {
+      color: white;
+    }
+  }
+}
