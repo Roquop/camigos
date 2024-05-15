@@ -9,6 +9,7 @@ import { CamigosFooter } from "../components/Footer/CamigosFooter";
 import { FinalesFelices } from "../pages/Dashboard/Finales_felices/FinalesFelices";
 import { Registro } from "../pages/Auth/Registro";
 import { CuidadosParaTuPerro } from "../pages/Dashboard/Cuidados_para_tu_perro/CuidadosParaTuPerro";
+import "../App.scss"
 
 export const CamigosBrowser = () => {
   return (

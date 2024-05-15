@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./home.scss";
 import axios from "axios";
+import { Container } from "react-bootstrap";
 
 export const Home = () => {
   const [prueba, setPrueba] = useState("nada");
@@ -18,9 +19,9 @@ export const Home = () => {
   }, []);
 
   return (
-    <>
+    <Container className="main_container">
       <h1>Home</h1>
       conexion con la base de datos: {prueba}
-    </>
+    </Container>
   );
 };

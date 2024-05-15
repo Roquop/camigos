@@ -1,33 +1,31 @@
 import React, { useState, useEffect } from "react";
 import "./cuidadosParaTuPerro.scss";
-import { Button, Container, Nav, Navbar, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 
 export const CuidadosParaTuPerro = () => {
   const [consejo, setConsejo] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Llamar a la API externa para obtener la frase aleatoria
-    axios
-      .get("https://dog-api.kinduff.com/api/facts")
-      .then((response) => {
-        const consejoIngles = response.data.facts[0];
-        // Traducir la frase obtenida utilizando Google Translate en línea
-        axios
-          .post(
-            "https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=es&dt=t&q=" +
-              encodeURIComponent(consejoIngles)
-          )
-          .then((traduccion) => {
-            setConsejo(traduccion.data[0][0][0]);
-          })
-          .catch((error) => {
-            console.error("Error al traducir:", error); setConsejo("Ha habido un error y no se ha podido traducir del inglés el siguiente dato curioso: " + consejoIngles);
-          });
-      })
-      .catch((error) => {
-        console.error("Error al obtener la frase aleatoria:", error);
-      });
+    const fetchData = async () => {
+      let consejoIngles;
+      try {
+        const response = await axios.get("https://dog-api.kinduff.com/api/facts");
+        consejoIngles = response.data.facts[0];
+        const traduccionResponse = await axios.post(
+          `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=es&dt=t&q=${encodeURIComponent(consejoIngles)}`
+        );
+        const traduccion = traduccionResponse.data[0][0][0];
+        setConsejo(traduccion);
+      } catch (error) {
+        console.log("Hemos sido víctimas de nuestro propio éxito, la página ha alcanzado su número máximo de traducciones por hoy. El hecho curioso en su idioma original es: ", error);setConsejo("No se pudo traducir el dato al español, el dato original es: " + consejoIngles)
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
@@ -36,13 +34,8 @@ export const CuidadosParaTuPerro = () => {
       <Row>
         <Col>
           <h2>El dato curioso del día</h2>
-         {consejo != "" && (
-           <p>{consejo}</p>
-        )} 
-        {consejo == "" && (
-          <p>Cargando dato curioso...</p>
-        )}
-        
+          {loading && <p>Cargando dato curioso...</p>}
+          {consejo && <p>{consejo}</p>}
         </Col>
       </Row>
     </Container>
