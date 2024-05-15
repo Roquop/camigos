@@ -154,6 +154,7 @@ export const CuidadosParaTuPerro = () => {
               esterilizaciones se pueden hacer con la protectora teniendo un
               coste más reducido.
             </p>
+            <Button onClick={() => setShowAntes(!showAntes)}>Cerrar</Button>
           </Col>
           <h2 onClick={() => SetShowPreguntas(!showPreguntas)}>
             Hazte las preguntas correctas
@@ -210,6 +211,9 @@ export const CuidadosParaTuPerro = () => {
               O, por último, adaptar tu estilo de vida a tu nueva circunstancia
               y llevártelo contigo
             </p>
+            <Button onClick={() => SetShowPreguntas(!SetShowPreguntas)}>
+              Cerrar
+            </Button>
           </Col>
           <h2 onClick={() => SetShowAlimentacion(!showAlimentacion)}>
             Alimentación
@@ -407,6 +411,9 @@ export const CuidadosParaTuPerro = () => {
                 de nuestra mascota.
               </li>
             </ul>
+            <Button onClick={() => SetShowAlimentacion(!showAlimentacion)}>
+              Cerrar
+            </Button>
           </Col>
           <Col className="imagenes_cuidados">
             <div className="imagen_perro">
@@ -518,6 +525,9 @@ export const CuidadosParaTuPerro = () => {
               buscar un compañero de juegos para nuestros pequeños. La elección
               es complicada, ahora tú decides con cuál te quedas.
             </p>
+            <Button onClick={() => SetShowEducacion(!showEducacion)}>
+              Cerrar
+            </Button>
           </Col>
           <h2 onClick={() => SetShowEnfermedades(!showEnfermedades)}>
             Salud Canina
@@ -632,7 +642,7 @@ export const CuidadosParaTuPerro = () => {
               mencionada de manera destacada.
             </p>
 
-            <h2>Grasa en los Perros</h2>
+            <h3>Grasa en los Perros</h3>
 
             <p>
               Para comenzar, no "antropomorficemos" al perro, esto quiere decir
@@ -714,6 +724,9 @@ export const CuidadosParaTuPerro = () => {
                 colesterol en los perros.
               </li>
             </ul>
+            <Button onClick={() => SetShowEnfermedades(!showEnfermedades)}>
+              Cerrar
+            </Button>
           </Col>
           <h2 onClick={() => SetShowHigiene(!showHigiene)}>
             Higiene para Perros
@@ -767,6 +780,7 @@ export const CuidadosParaTuPerro = () => {
               toalla y un secador de pelo con aire frío o templado,
               manteniéndolo a una distancia segura para no quemar la piel.
             </p>
+            <Button onClick={() => SetShowHigiene(!showHigiene)}>Cerrar</Button>
           </Col>
         </Row>
       </Row>
