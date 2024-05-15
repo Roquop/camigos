@@ -82,3 +82,9 @@ body::-webkit-scrollbar {
   }
 }
 
+
+@media (max-width: 800px) {
+  #columna_principal {
+    width: 100vw;
+  }
+}
