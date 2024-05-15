@@ -1,4 +1,5 @@
 import React from "react";
+//Por alguna razon no funciona si esta dentro de la carpeta
 import "./style/camigosNavBar.scss";
 import { Button, Container, Nav, Navbar, Row, Col } from "react-bootstrap";
 import { Link, NavLink, useNavigate } from "react-router-dom";
