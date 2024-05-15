@@ -47,20 +47,21 @@ h3 {
     display: flex;
     justify-content:space-around;
     align-items: center;
-    flex-direction: row;
     flex-wrap: wrap;
-    height: 200px;
     .imagen_perro{
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 25%;
+        width: 24%;
         height: 100%;
         object-fit: contain;
         img{
             border: 1px solid black;
-            width: 200px;
-            height: 200px;
+            padding: 5px;
+            width: 18vw;
+            height: 18vw;
+            max-width: 500px;
+            max-height: 500px;
             object-fit: cover;
         }
     }
