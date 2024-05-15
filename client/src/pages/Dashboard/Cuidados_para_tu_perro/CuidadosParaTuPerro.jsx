@@ -30,7 +30,7 @@ export const CuidadosParaTuPerro = () => {
 
   return (
     <Container id="cuidados_para_tu_perro">
-      <h1>Cuidados Para Tu Perro</h1>
+      <h1>Cuidados Para tu Perro</h1>
       <Row>
         <Col>
           <h2>El dato curioso del día</h2>
