@@ -1,0 +1,67 @@
+#cuidados_para_tu_perro{
+    margin-bottom: 50px;
+}
+.dato_curioso {
+  border: 3px solid black;
+  padding: 10px 20px;
+  text-align: center;
+}
+.antes_de_adoptar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.cuidados_desplegables {
+  h2 {
+    font-weight: normal;
+    font-size: 35px;
+    cursor: pointer;
+    user-select: none; /* Standard syntax */
+    background-color: #22809D;
+    color: white;
+    text-shadow: 1px 1px 1px black, -1px 1px 1px black, 1px -1px 1px black, -1px -1px 1px black;
+    padding-left: 25px;
+    margin-bottom: 0;
+  }
+  .desplegable {
+    background-color: #def3fa;
+    padding: 20px;
+
+  }
+  p{
+    text-align: justify;
+  }
+}
+h3 {
+  margin-top: 0;
+}
+
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.imagenes_cuidados{
+    padding-top: 30px;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 200px;
+    .imagen_perro{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25%;
+        height: 100%;
+        object-fit: contain;
+        img{
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+    }
+}
