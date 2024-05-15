@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Container, Nav, Navbar, Row, Col } from "react-bootstrap";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import "./camigosNavBar.scss";
+import "/camigosNavBar.scss";
 
 export const CamigosNavBar = () => {
   return (
