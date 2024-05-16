@@ -9,8 +9,7 @@ export const OneAssociation = () => {
   const [association, setAssociation] = useState([]);
   useEffect(() => {
     axios
-      .get
-      // `http://localhost:4000/association/getOneAssociation/${association_id}`()
+      //.get `http://localhost:4000/association/getOneAssociation/${association_id}`()
       .get(
         `https://camigos-production.up.railway.app/association/getOneAssociation/${association_id}`
       )
