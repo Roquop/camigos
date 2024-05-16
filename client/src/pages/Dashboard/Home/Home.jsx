@@ -4,6 +4,7 @@ import axios from "axios";
 import { Card, Container } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { ruta } from "../../../helpers/backOrigin/rutaBack";
+import { CamigosContext } from "../../../context/CamigosContext";
 
 export const Home = () => {
   const [associationList, setAssociationList] = useState([]);
@@ -20,7 +21,6 @@ export const Home = () => {
       });
   }, []);
 
-  console.log(associationList);
   return (
     <Container className="main_container">
       <h1>Nuestras Asociaciones</h1>

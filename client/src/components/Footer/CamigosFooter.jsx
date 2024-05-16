@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Container, Nav, Navbar, Row, Col } from "react-bootstrap";
 import "./camigosFooter.scss";
+import { CamigosContext } from "../../context/CamigosContext";
 
 export const CamigosFooter = () => {
   return (

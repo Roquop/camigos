@@ -4,6 +4,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import "./oneAssociation.scss";
 import { ruta } from "../../../helpers/backOrigin/rutaBack";
+import { CamigosContext } from "../../../context/CamigosContext";
 
 export const OneAssociation = () => {
   const { association_id } = useParams();
@@ -50,7 +51,7 @@ export const OneAssociation = () => {
             </Col>
           </Row>
           <Row>
-            <h3>Reseñas sobre la asociación {association.name_association}</h3>
+            <h3 id="titulos_resenas">Reseñas sobre la asociación {association.name_association}</h3>
             <Col className="comentarios_asociacion">
               {allComments == "" && (
                 <p>Aún no hay comentarios sobre esta asociación</p>
