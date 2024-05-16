@@ -51,7 +51,9 @@ export const Login = () => {
           navigate(`/MyUser/${user_id}`);
         })
         .catch((err) => {
-          setMensaje(err.response.data);
+         setMensaje(err.response.data);
+        (console.log(err, "error sql"))
+          console.log("ERROR DEL LOGNI")
         });
     }
   };
@@ -122,7 +124,6 @@ export const Login = () => {
             ))}
           </Form.Group>
         </Form>
-        <p>{mensaje}</p>
       </Col>
     </Row>
   );

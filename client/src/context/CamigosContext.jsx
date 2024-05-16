@@ -11,7 +11,6 @@ export const CamigosProvider = (props) => {
   const [isLogged, setIsLogged] = useState(false);
   const [token, setToken] = useState();
 
-  console.log(user)
   useEffect(() => {
     // Recoge el token del usuario logeado del LocalStorage y pasa su valor al estado token
     const token = getLocalStorageCamigos();

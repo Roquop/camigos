@@ -5,9 +5,9 @@ var logger = require("morgan");
 var cors = require("cors");
 var createError = require("http-errors");
 
-var adminRouter = require("./routes/users/admin");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var adminRouter = require("./routes/users/admin");
 var associationRouter = require("./routes/association")
 
 var app = express();
