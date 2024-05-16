@@ -10,7 +10,7 @@ function uploadImage(a) {
     },
   });
 
-  const upload = multer({ storage: storage }).array("file");
+  const upload = multer({ storage: storage }).single("file");
 
   return upload;
 }

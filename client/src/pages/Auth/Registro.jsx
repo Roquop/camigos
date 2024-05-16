@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button, Col, Form, Row, Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./registro.scss";
+import { ruta } from "../../helpers/backOrigin/rutaBack";
 
 let initialValue = {
   name: "",
@@ -33,28 +34,28 @@ export const Registro = () => {
       setMessageError(
         "Introduce el e-mail en un formato nombre@nombre.dominio"
       );
-    } else if (!user.type) {
-      //Comprobamos que ha elegido un tipo de usuario
-      setMessageError("Elige un tipo de usuario");
     } else {
       //Llamamos al controlador y registramos al usuario
       axios
-        .post(`http://localhost:4000/users/register`, user)
+        .post(`${ruta}/users/register`, user)
         .then((res) => {
           setMessageError("");
           setConfirmation(
-            `Se ha enviado un correo a la cuenta de correo electrónico registrada. \n\nEn caso de no recibirlo en 24h, contacta con nosotros en info@groditech,com o en el teléfono +34674467243`
+            `Tu cuenta se ha registrado correctamente. ¡Inicia sesión para acceder a las ventajas de usuario! En breves momentos se te redirigirá a la página de inicio de sesión`
           );
           setTimeout(() => {
-            navigate("/");
+            navigate("/login");
           }, 10000);
         })
         .catch((err) => {
           console.log(err);
-          if (err.response.data.error.errno === 1062) {
-            setMessageError("E-mail duplicado");
+          if (err) {
+            console.log(err);
+            setMessageError(
+              "El correo electrónico ya ha sido registrado previamente"
+            );
           } else {
-            setMessageError("Debes elegir un tipo de usuario");
+            setMessageError(err.response.data.error);
           }
         });
     }
@@ -127,22 +128,8 @@ export const Registro = () => {
                     value={user.password}
                     onChange={handleChange}
                     onKeyDown={handleKeyDown}
-                    placeholder="bioBuk123!"
+                    placeholder="contraseña123!"
                   />
-                </Form.Group>
-
-                <Form.Group className="label mb-3">
-                  <Form.Label>Soy...</Form.Label>
-                  <Form.Select
-                    aria-label="Default select example"
-                    onChange={handleChange}
-                    onKeyDown={handleKeyDown}
-                    name="type"
-                  >
-                    <option value=""></option>
-                    <option value="0">Agricultor</option>
-                    <option value="1">Dueño de Tienda</option>
-                  </Form.Select>
                 </Form.Group>
 
                 <p className="mensajeError">{messageError}</p>
