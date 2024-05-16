@@ -9,7 +9,7 @@ class userControllers {
         //Seleccionamos al usuario que coincide con el email
         let sql = `SELECT * FROM user WHERE email = '${email}' AND deleted = 0`;
         keepLogged === true ? (keepLogged = null) : (keepLogged = "1d");
-        console.log("funciona")
+        // console.log("funciona")
         connection.query(sql, (error, result) => {
             // console.log(result);
             //en caso de error en la consulta
@@ -99,6 +99,25 @@ class userControllers {
                 res.status(400).json({ error });
             }
             res.status(200).json({ result });
+        });
+    };
+
+    // Añade un comentario y selecciona la información de los comentarios para actualizar la lista
+    //localhost:4000/users/farmer/postComment/:user_id/:association_id
+    postComment = (req, res) => {
+        const user_id = req.params.user_id;
+        const association_id = req.params.association_id;
+        const { comment_text, rating } = req.body;
+
+        let sql = `INSERT INTO comment (user_id, association_id, comment_text, rating) VALUES (${user_id}, ${association_id}, '${comment_text}', '${rating}')`;
+        let sql2 = `SELECT comment_text, name_association, rating FROM comment, association, user WHERE comment.user_id = ${user_id} and  comment.association_id = association.association_id and comment.user_id = user.user_id `;;
+
+        connection.query(sql, (error, result) => {
+            error && res.status(400).json({ error });
+            // Envía la información de la lista de comentarios nueva
+            connection.query(sql2, (error, result2) => {
+                res.status(200).json(result2);
+            });
         });
     };
 

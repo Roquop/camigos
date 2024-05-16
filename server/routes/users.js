@@ -17,3 +17,7 @@ module.exports = router;
 //localhost:4000/users/getAllComments/:user_id
 router.get("/getAllComments/:user_id", userControllers.getAllComments)
 module.exports = router;
+
+// Postear un comentario
+//localhost:4000/users/postComment/:user_id/:association_id
+router.post("/postComment/:user_id/:association_id", userControllers.postComment)
