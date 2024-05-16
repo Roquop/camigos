@@ -3,6 +3,7 @@ import "./home.scss";
 import axios from "axios";
 import { Card, Container } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
+import { ruta } from "../../../helpers/backOrigin/rutaBack";
 
 export const Home = () => {
   const [associationList, setAssociationList] = useState([]);
@@ -10,10 +11,7 @@ export const Home = () => {
 
   useEffect(() => {
     axios
-      // .get("http://localhost:4000/association/getAllAssociations")
-      .get(
-        "https://camigos-production.up.railway.app/association/getAllAssociations"
-      )
+      .get(`${ruta}/association/getAllAssociations`)
       .then((res) => {
         setAssociationList(res.data.result);
       })

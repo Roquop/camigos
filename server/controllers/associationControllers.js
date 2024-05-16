@@ -26,6 +26,18 @@ class associationControllers {
             }
         });
     }
+    getAllComments = (req, res) =>{
+        const {association_id} = req.params
+        let sql = `SELECT name, comment_text, rating FROM user, comment WHERE association_id = ${association_id} AND user.user_id = comment.user_id;`;
+        connection.query(sql, (error, result) => {
+            if (error) {
+                res.status(400).json({ error });
+            } else {
+                console.log(result)
+                res.status(200).json({ result });
+            }
+        });
+    }
 }
 
 module.exports = new associationControllers();

@@ -84,6 +84,9 @@ body::-webkit-scrollbar {
 
 @media (max-width: 800px) {
   #columna_principal {
-    width: 100vw;
+    width: 100%;
+  }
+  #row_principal{
+    width: 100%;
   }
 }
