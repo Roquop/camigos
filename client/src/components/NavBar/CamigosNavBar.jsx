@@ -31,7 +31,7 @@ export const CamigosNavBar = () => {
             >
               <img src="/camigos_logo.svg" />
             </Navbar.Brand>
-            <h1 className="titulo_web">Familia Canina</h1>
+            <h1 className="titulo_web">Camigos</h1>
           </Col>
           <a className="menu_movil" onClick={() => setShowNavBar(!showNavBar)}>
             Menu
