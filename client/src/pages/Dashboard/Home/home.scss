@@ -1,0 +1,31 @@
+h1 {
+  text-align: center;
+}
+.associations_container {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  .asociacion {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    img {
+      display: flex;
+      width: 100%;
+      height: calc(70vw / 4);
+      object-fit: cover;
+    }
+    p {
+      text-align: left;
+      display: -webkit-box; /* Usar el modelo de caja flex para Webkit */
+      -webkit-box-orient: vertical; /* Orientación vertical */
+      -webkit-line-clamp: 3; /* Limitar a 3 líneas */
+      overflow: hidden; /* Ocultar el contenido que exceda */
+      text-overflow: ellipsis;
+    }
+    h3 {
+      margin: 0;
+    }
+  }
+}

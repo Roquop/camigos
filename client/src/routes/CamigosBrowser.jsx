@@ -9,7 +9,8 @@ import { CamigosFooter } from "../components/Footer/CamigosFooter";
 import { FinalesFelices } from "../pages/Dashboard/Finales_felices/FinalesFelices";
 import { Registro } from "../pages/Auth/Registro";
 import { CuidadosParaTuPerro } from "../pages/Dashboard/Cuidados_para_tu_perro/CuidadosParaTuPerro";
-import "../App.scss"
+import "../App.scss";
+import { OneAssociation } from "../pages/Dashboard/Asociacion/OneAssociation";
 
 export const CamigosBrowser = () => {
   return (
@@ -17,7 +18,7 @@ export const CamigosBrowser = () => {
       <BrowserRouter>
         <Row>
           <Col>
-            <CamigosNavBar/>
+            <CamigosNavBar />
           </Col>
         </Row>
         <Row id="row_principal">
@@ -26,16 +27,26 @@ export const CamigosBrowser = () => {
               <Route path="/" element={<Home />}></Route>
               <Route path="/juego" element={<Juego />}></Route>
               <Route path="/login" element={<Login />}></Route>
-              <Route path="/finalesFelices" element={<FinalesFelices/>}></Route>
-              <Route path="/registro" element={<Registro/>}></Route>
-              <Route path="/cuidadosParaTuPerro" element={<CuidadosParaTuPerro/>}></Route>
+              <Route
+                path="/finalesFelices"
+                element={<FinalesFelices />}
+              ></Route>
+              <Route path="/registro" element={<Registro />}></Route>
+              <Route
+                path="/cuidadosParaTuPerro"
+                element={<CuidadosParaTuPerro />}
+              ></Route>
+              <Route
+                path="/OneAssociation/:association_id"
+                element={<OneAssociation />}
+              ></Route>
             </Routes>
           </Col>
         </Row>
         <Row>
-            <Col>
-            <CamigosFooter/>
-            </Col>
+          <Col>
+            <CamigosFooter />
+          </Col>
         </Row>
       </BrowserRouter>
     </Container>

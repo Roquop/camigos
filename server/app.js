@@ -6,9 +6,9 @@ var cors = require("cors");
 var createError = require("http-errors");
 
 var adminRouter = require("./routes/users/admin");
-
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var associationRouter = require("./routes/association")
 
 var app = express();
 app.use(cors({ origin: "*" }));
@@ -27,6 +27,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/users/admin", adminRouter)
+app.use("/association", associationRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
