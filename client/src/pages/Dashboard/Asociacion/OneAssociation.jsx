@@ -10,8 +10,7 @@ export const OneAssociation = () => {
   useEffect(() => {
     axios
       .get
-      // `http://localhost:4000/association/getOneAssociation/${association_id}`
-      ()
+      // `http://localhost:4000/association/getOneAssociation/${association_id}`()
       .get(
         `https://camigos-production.up.railway.app/association/getOneAssociation/${association_id}`
       )
