@@ -1,15 +1,82 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./myUser.scss";
 import { CamigosContext } from "../../../context/CamigosContext";
 import { ruta } from "../../../helpers/backOrigin/rutaBack";
 
+let initialAssociation = {
+  name_association: "",
+  country: "",
+  province: "",
+  description: "",
+  url: "",
+};
 export const MyUser = () => {
   const [comments, setComments] = useState([]);
   const navigate = useNavigate();
   const { user } = useContext(CamigosContext);
+  const [association, setAssociation] = useState(initialAssociation);
+  const [associationFile, setAssociationFile] = useState();
+  const [message, setMessage] = useState("")
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setAssociation({ ...association, [name]: value });
+  };
+
+  const handleFile = (e) => {
+    console.log(e)
+    setAssociationFile(e.target.files);
+  };
+
+console.log(associationFile)
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      const inputs = Array.from(document.querySelectorAll("input"));
+      const index = inputs.indexOf(e.target);
+      inputs[index + 1].focus();
+    }
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    if (
+      association.name_association === "" ||
+      association.country === "" ||
+      association.province === "" ||
+      association.description === "" ||
+      association.url === ""
+    ) {
+      setMessage("Debes rellenar todos los campos");
+    } else {
+      const newFormData = new FormData();
+      if (associationFile) {
+        for (let file of associationFile) {
+          newFormData.append("file", file);
+        }
+      }
+
+      newFormData.append("newAssociation", JSON.stringify(association));
+
+      e.preventDefault();
+      axios
+        .post(
+          `${ruta}/association/createAssociation/${user.user_id}`,
+          newFormData
+        )
+        .then((res) => {
+          setAssociation(initialAssociation);
+          setMessage("");
+          e.preventDefault();
+        })
+        .catch((err) => console.log(err));
+    }
+    e.preventDefault();
+
+  };
 
   useEffect(() => {
     axios
@@ -22,7 +89,7 @@ export const MyUser = () => {
         console.log(error);
       });
   }, []);
-  console.log(comments);
+
   return (
     <Container>
       <Row className="division_perfil">
@@ -70,7 +137,81 @@ export const MyUser = () => {
           </div>
         </Col>
       </Row>
-      <Row></Row>
+      {user.type == 2 && (
+        <Row id="crear_asociación">
+          <h3>Crear asociación</h3>
+          <Form>
+            <Form.Group className="mb-3" controlId="formBasicName">
+              <Form.Label>Nombre *</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Nombre"
+                onChange={handleChange}
+                onKeyDown={handleKeyDown}
+                name="name_association"
+                value={association.name_association}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicExtension">
+              <Form.Label>País *</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="país"
+                onChange={handleChange}
+                onKeyDown={handleKeyDown}
+                name="country"
+                value={association.country}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicExtension">
+              <Form.Label>Província *</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="província"
+                onChange={handleChange}
+                onKeyDown={handleKeyDown}
+                name="province"
+                value={association.province}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicExtension">
+              <Form.Label>Descripción *</Form.Label>
+              <Form.Control
+                type="textarea"
+                placeholder="Descripción"
+                onChange={handleChange}
+                onKeyDown={handleKeyDown}
+                name="description"
+                value={association.description}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicExtension">
+              <Form.Label>URL *</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="www.url.com"
+                onChange={handleChange}
+                onKeyDown={handleKeyDown}
+                name="url"
+                value={association.url}
+              />
+            </Form.Group>
+            <Form.Group controlId="formFile" className="mb-3">
+              <Form.Label>Imagen</Form.Label>
+              <Form.Control type="file" onChange={handleFile} />
+            </Form.Group>
+          </Form>
+          <Button
+            variant="primary"
+            type="submit"
+            className="bio-btn-primary"
+            onClick={handleFormSubmit}
+          >
+            Añadir
+          </Button>
+          <h3>{message}</h3>
+        </Row>
+      )}
     </Container>
   );
 };
