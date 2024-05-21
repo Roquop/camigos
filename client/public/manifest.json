@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Camigos",
+  "name": "Camigos App",
   "icons": [
     {
       "src": "camigos_logo.svg",
@@ -8,12 +8,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "camigos_logo.svg",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "camigos_logo.svg",
       "type": "image/png",
       "sizes": "512x512"
     }
