@@ -21,6 +21,8 @@
   width: 90%;
   gap: 20px;
   .instrucciones {
+    display: flex;
+    align-items: center;
     border: 1px solid black;
     flex: 1;
     padding: 10px;
@@ -108,5 +110,10 @@
         height: 70px;
       }
     }
+  }
+  .p_instrucciones {
+      text-align: center;
+      width: 90%;
+      margin: auto;
   }
 }

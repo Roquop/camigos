@@ -36,7 +36,7 @@ export const Juego = () => {
     <Container className="contenedor_puzzle">
       {!isLogged && (
         <Col>
-          <p>
+          <p className="p_instrucciones">
             Si te creas un usuario, ¡podrás guardar los puzzles que resuelvas!
             ve ya a{" "}
             <a
