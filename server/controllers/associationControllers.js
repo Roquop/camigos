@@ -7,7 +7,6 @@ class associationControllers {
             if (error) {
                 res.status(400).json({ error });
             } else {
-                console.log(result)
                 res.status(200).json({ result });
             }
         });
@@ -21,7 +20,6 @@ class associationControllers {
             if (error) {
                 res.status(400).json({ error });
             } else {
-                console.log(result)
                 res.status(200).json({ result });
             }
         });
@@ -33,7 +31,6 @@ class associationControllers {
             if (error) {
                 res.status(400).json({ error });
             } else {
-                console.log(result)
                 res.status(200).json({ result });
             }
         });

@@ -121,6 +121,29 @@ class userControllers {
         });
     };
 
+    savePuzzle = (req, res) => {
+        const user_id = req.params.user_id;
+        const { puzzle } = req.body;
+
+        let sql = `INSERT INTO puzzle (user_id, puzzle_img) VALUES (${user_id}, '${puzzle}')`;
+        connection.query(sql, (error, result) => {
+            error && res.status(400).json({ error });
+        })
+
+    }
+    getAllPuzzles = (req, res) => {
+        const user_id = req.params.user_id;
+
+        let sql = `SELECT * from puzzle WHERE user_id = ${user_id} AND deleted = 0`;
+        connection.query(sql, (error, result) => {
+            if (error) {
+                console.log(error)
+                res.status(400).json({ error });
+            }
+            res.status(200).json({ result });
+        });
+    }
+
 }
 
 module.exports = new userControllers();

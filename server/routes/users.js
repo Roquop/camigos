@@ -21,3 +21,11 @@ module.exports = router;
 // Postear un comentario
 //localhost:4000/users/postComment/:user_id/:association_id
 router.post("/postComment/:user_id/:association_id", userControllers.postComment)
+
+// Guardar un puzzle
+//localhost:4000/users/savePuzzle/:user_id/
+router.post("/savePuzzle/:user_id", userControllers.savePuzzle)
+
+// Ver todos los puzzles
+//localhost:4000/users/getAllPuzzles/:user_id/
+router.get("/getAllPuzzles/:user_id", userControllers.getAllPuzzles)

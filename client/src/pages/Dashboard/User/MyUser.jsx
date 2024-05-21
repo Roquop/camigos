@@ -20,6 +20,11 @@ export const MyUser = () => {
   const [association, setAssociation] = useState(initialAssociation);
   const [associationFile, setAssociationFile] = useState();
   const [message, setMessage] = useState("");
+  const [puzzlesArray, setPuzzlesArray] = useState([]);
+
+  const openImage = (imagen) => {
+    window.open(imagen, "_blank");
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,7 +36,6 @@ export const MyUser = () => {
     setAssociationFile(e.target.files);
   };
 
-  console.log(associationFile);
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       const inputs = Array.from(document.querySelectorAll("input"));
@@ -83,6 +87,18 @@ export const MyUser = () => {
       .then((res) => {
         // Setea el estado user con esa información
         setComments(res.data.result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`${ruta}/users/getAllPuzzles/${user.user_id}`)
+      .then((res) => {
+        // Setea el estado user con esa información
+        setPuzzlesArray(res.data.result);
       })
       .catch((error) => {
         console.log(error);
@@ -212,6 +228,29 @@ export const MyUser = () => {
             <h3>{message}</h3>
           </Col>
         </Row>
+      )}
+      {puzzlesArray.length != 0 && (
+        <div>
+          <Row className="puzzles_resueltos">
+            <Col>
+              <h3>Puzzles Resueltos</h3>
+            </Col>
+          </Row>
+          <div className="carousel-container">
+            {puzzlesArray.map((puzzle, index) => (
+              <div className="carousel-item" key={index}>
+                <img
+                  src={puzzle.puzzle_img}
+                  alt={`Puzzle ${index}`}
+                  onClick={() => {
+                    openImage(puzzle.puzzle_img);
+                  }}
+                  className="carousel-image"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       )}
     </Container>
   );

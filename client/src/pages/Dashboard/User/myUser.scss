@@ -1,3 +1,22 @@
+
+.carousel-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 1rem;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.carousel-image {
+  max-height: 200px; /* Ajusta según tus necesidades */
+  width: auto;
+  border-radius: 8px;
+}
 #columna_principal {
   width: 100%;
 }
@@ -35,6 +54,9 @@
 #crear_asociacion {
   width: 81%;
   margin: auto;
+  h3 {
+    margin: 20px 0;
+  }
 }
 @media (max-width: 800px) {
   .division_perfil {
