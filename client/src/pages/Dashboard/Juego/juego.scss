@@ -1,20 +1,112 @@
-.puzzle-game {
-    width: 600px;
-    height: 600px;
-    margin: 0 auto;
-    position: relative;
+.jigsaw-puzzle {
+  margin-bottom: 40px;
+}
+.registro_enlace {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.jigsaw-puzzle {
+  border: 1px solid black;
+  width: 90%;
+}
+.contenedor_puzzle {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.cabecera_puzzle {
+  display: flex;
+  margin: 15px 0;
+  width: 90%;
+  gap: 20px;
+  .instrucciones {
+    border: 1px solid black;
+    flex: 1;
+    padding: 10px;
   }
-  
-  .puzzle-board {
-    width: 100%;
-    height: 100%;
-    position: relative;
+  .nuevo_puzzle {
+    flex: 1;
   }
-  .puzzle-piece {
+  .opciones {
+    display: flex;
+    justify-content: space-around;
+    height: 60%;
+    button {
+      width: 100px;
+      height: 100px;
+      margin: 5px;
+      background-color: green;
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .medio {
+      background-color: rgb(198, 198, 18);
+    }
+    .dificil {
+      background-color: rgb(200, 14, 14);
+    }
+    .legendario {
+      background-color: rgb(54, 2, 2);
+    }
+    button:hover {
+      animation: scale-animation 0.2s ease-in-out;
+    }
+  }
+}
+.imagen_referencia {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 20px 0;
+  button {
+    background-color: rgba(33, 110, 127, 0.24);
+    border: none;
+    height: 40px;
+    cursor: pointer;
+  }
+  button:hover {
+    filter: invert(100%);
+    color: white;
+  }
+  .superpuesta {
     position: absolute;
-    background-size: 300% 300%; /* Ajusta según el tamaño del tablero */
-    border: 1px solid #000;
-    box-sizing: border-box;
-    cursor: move;
+    height: auto;
+    top: 60px;
+    z-index: 1;
+    opacity: 50%;
   }
-  
+  .cuadradito {
+    position: absolute;
+    height: auto;
+    width: 20%;
+    top: 70px;
+    left: 10px;
+    z-index: 2;
+  }
+}
+@keyframes scale-animation {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@media (max-width: 800px) {
+  .cabecera_puzzle {
+    flex-direction: column;
+    .opciones {
+      button {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+}

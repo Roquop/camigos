@@ -16,6 +16,7 @@
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18.3.1",
     "react-i18next": "^14.1.1",
+    "react-jigsaw-puzzle": "^1.0.5",
     "react-router-dom": "^6.0.2",
     "react-scripts": "5.0.1",
     "sass": "^1.77.1",
