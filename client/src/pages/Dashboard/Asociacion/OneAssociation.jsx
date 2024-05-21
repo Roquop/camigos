@@ -54,14 +54,15 @@ export const OneAssociation = () => {
         console.log(error);
       });
   }, []);
-  console.log(allComments == "");
+
   return (
     <Container>
       {association != [] && (
         <>
           <Row id="una_asociacion">
             <Col className="imagen_una_asociacion">
-              <img src={`/images/asociaciones/${association.image}`}></img>
+              <img className="img_fondo" src={`/images/asociaciones/${association.image}`}></img>
+              <img className="img_grande" src={`/images/asociaciones/${association.image}`}></img>
             </Col>
             <Col className="informacion_asociacion">
               <h2>{association.name_association}</h2>

@@ -121,6 +121,7 @@ export const Home = () => {
                     <div className="datos_asociacion">
                       <h3>{elem.name_association}</h3>
                       <p>{elem.description}</p>
+                      <h4>{elem.province}</h4>
                     </div>
                   </Card>
                 );

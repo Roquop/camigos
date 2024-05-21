@@ -24,17 +24,17 @@
     margin-bottom: 20px;
   }
 }
-.mantener{
+.mantener {
   width: 100%;
   justify-content: center;
   align-items: center;
 }
-.boton_iniciar_sesion{
+.boton_iniciar_sesion {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
-  button{
+  button {
     background-color: transparent;
     border: none;
     font-size: 20px;
@@ -50,7 +50,7 @@
     background-color: rgb(33, 110, 127);
   }
 }
-.col_formulario{
+.col_formulario {
   width: 102%;
 }
 .formlogin::before {
@@ -64,9 +64,14 @@
   left: 0;
   z-index: -1;
 }
-@media (min-width: 100px) and (max-width: 750px) {
+@media (max-width: 750px) {
   .formulario {
     margin: 45px 0;
+  }
+  .formlogin {
+    .disclaimer {
+      margin-bottom: 0px;
+    }
   }
 }
 .none {
