@@ -73,8 +73,8 @@ export const Login = () => {
     <Row className="formlogin">
       <Col sm={12} md={8} lg={6}>
         <Form className="formulario">
-          <Form.Group>
-            <h2 className={mensaje && "alert alert-danger"}>{mensaje}</h2>
+          <Form.Group className="mb-3">
+            <h2 className={mensaje ? "alert alert-danger" : "none"}>{mensaje}</h2>
             <Form.Label>E-mail</Form.Label>
             <Form.Control
               className="input"
@@ -89,7 +89,7 @@ export const Login = () => {
               Nunca compartiremos tu correo con nadie más.
             </Form.Text>
           </Form.Group>
-          <Form.Group>
+          <Form.Group className="mb-3">
             <Form.Label className="mt-3">Contraseña</Form.Label>
             <Form.Control
               className="input"
@@ -108,7 +108,7 @@ export const Login = () => {
           >
             Iniciar Sesión
           </Button>
-          <Form.Group className="d-flex gap-2 mt-3">
+          <Form.Group className="d-flex gap-2 mt-3 mb-3">
             <Form.Label className="text-muted">
               Mantener la sesión activa
             </Form.Label>
