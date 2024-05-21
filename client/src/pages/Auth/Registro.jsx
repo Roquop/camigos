@@ -133,13 +133,15 @@ export const Registro = () => {
                 </Form.Group>
 
                 <p className="mensajeError">{messageError}</p>
-                <Button
-                  className="boton bio-btn-primary btn-fix mx-auto"
-                  variant="primary"
-                  onClick={handleSubmit}
-                >
-                  Crear Usuario
-                </Button>
+                <div className="boton_registro">
+                  <Button
+                    className="boton bio-btn-primary btn-fix mx-auto"
+                    variant="primary"
+                    onClick={handleSubmit}
+                  >
+                    Crear Usuario
+                  </Button>
+                </div>
               </Form>
             </div>
           </div>

@@ -51,9 +51,9 @@ export const Login = () => {
           navigate(`/MyUser/${user_id}`);
         })
         .catch((err) => {
-         setMensaje(err.response.data);
-        (console.log(err, "error sql"))
-          console.log("ERROR DEL LOGNI")
+          setMensaje(err.response.data);
+          console.log(err, "error sql");
+          console.log("ERROR DEL LOGNI");
         });
     }
   };
@@ -71,10 +71,15 @@ export const Login = () => {
 
   return (
     <Row className="formlogin">
-      <Col sm={12} md={8} lg={6}>
+      <Col className="disclaimer">
+        <p>Introduce tus datos a continuación para iniciar sesión</p>
+      </Col>
+      <Col className="col_formulario">
         <Form className="formulario">
           <Form.Group className="mb-3">
-            <h2 className={mensaje ? "alert alert-danger" : "none"}>{mensaje}</h2>
+            <h2 className={mensaje ? "alert alert-danger" : "none"}>
+              {mensaje}
+            </h2>
             <Form.Label>E-mail</Form.Label>
             <Form.Control
               className="input"
@@ -101,14 +106,7 @@ export const Login = () => {
               placeholder="contraseña123!"
             />
           </Form.Group>
-          <Button
-            className="bio-btn-primary mt-4"
-            variant="primary"
-            onClick={handleSubmit}
-          >
-            Iniciar Sesión
-          </Button>
-          <Form.Group className="d-flex gap-2 mt-3 mb-3">
+          <Form.Group className="d-flex gap-2 mt-3 mb-3 mantener">
             <Form.Label className="text-muted">
               Mantener la sesión activa
             </Form.Label>
@@ -123,6 +121,15 @@ export const Login = () => {
               </div>
             ))}
           </Form.Group>
+          <div className="boton_iniciar_sesion">
+            <Button
+              className="bio-btn-primary mt-4"
+              variant="primary"
+              onClick={handleSubmit}
+            >
+              Iniciar Sesión
+            </Button>
+          </div>
         </Form>
       </Col>
     </Row>

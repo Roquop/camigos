@@ -46,11 +46,10 @@ export const CuidadosParaTuPerro = () => {
 
   return (
     <Container id="cuidados_para_tu_perro">
-      <h1>Cuidados Para Tu Perro</h1>
       <Row>
         <Col className="dato_curioso">
-          <h2>El dato curioso</h2>
-          {loading && <p>Cargando dato curioso...</p>}
+          <h2>Firulais nos dice:</h2>
+          {loading && <p>Cargando dato curioso</p>}
           {consejo && (
             <>
               <p>{aviso}</p>

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState, useContext } from "react";
 import { Col, Container, Row, Form, Button } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./oneAssociation.scss";
 import { ruta } from "../../../helpers/backOrigin/rutaBack";
 import { CamigosContext } from "../../../context/CamigosContext";
@@ -14,6 +14,7 @@ export const OneAssociation = () => {
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(1);
   const [hover, setHover] = useState(0);
+  const navigate = useNavigate();
 
   const publishComment = () => {
     const comment_text = comment;
@@ -67,7 +68,13 @@ export const OneAssociation = () => {
               <h4>
                 {association.country}, {association.province}
               </h4>
-              <p>{association.url}</p>
+              <a
+                href={association.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {association.url}
+              </a>
               <p>{association.description}</p>
             </Col>
           </Row>

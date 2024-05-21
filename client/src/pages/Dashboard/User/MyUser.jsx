@@ -19,7 +19,7 @@ export const MyUser = () => {
   const { user } = useContext(CamigosContext);
   const [association, setAssociation] = useState(initialAssociation);
   const [associationFile, setAssociationFile] = useState();
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,11 +27,11 @@ export const MyUser = () => {
   };
 
   const handleFile = (e) => {
-    console.log(e)
+    console.log(e);
     setAssociationFile(e.target.files);
   };
 
-console.log(associationFile)
+  console.log(associationFile);
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       const inputs = Array.from(document.querySelectorAll("input"));
@@ -68,14 +68,13 @@ console.log(associationFile)
           newFormData
         )
         .then((res) => {
+          setMessage(`¡Se creó la asociación ${association.name_association}!`);
           setAssociation(initialAssociation);
-          setMessage("");
           e.preventDefault();
         })
         .catch((err) => console.log(err));
     }
     e.preventDefault();
-
   };
 
   useEffect(() => {
@@ -138,78 +137,80 @@ console.log(associationFile)
         </Col>
       </Row>
       {user.type == 2 && (
-        <Row id="crear_asociación">
-          <h3>Crear asociación</h3>
-          <Form>
-            <Form.Group className="mb-3" controlId="formBasicName">
-              <Form.Label>Nombre *</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Nombre"
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-                name="name_association"
-                value={association.name_association}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicExtension">
-              <Form.Label>País *</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="país"
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-                name="country"
-                value={association.country}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicExtension">
-              <Form.Label>Província *</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="província"
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-                name="province"
-                value={association.province}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicExtension">
-              <Form.Label>Descripción *</Form.Label>
-              <Form.Control
-                type="textarea"
-                placeholder="Descripción"
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-                name="description"
-                value={association.description}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicExtension">
-              <Form.Label>URL *</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="www.url.com"
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-                name="url"
-                value={association.url}
-              />
-            </Form.Group>
-            <Form.Group controlId="formFile" className="mb-3">
-              <Form.Label>Imagen</Form.Label>
-              <Form.Control type="file" onChange={handleFile} />
-            </Form.Group>
-          </Form>
-          <Button
-            variant="primary"
-            type="submit"
-            className="bio-btn-primary"
-            onClick={handleFormSubmit}
-          >
-            Añadir
-          </Button>
-          <h3>{message}</h3>
+        <Row>
+          <Col id="crear_asociacion">
+            <h3>Crear asociación</h3>
+            <Form>
+              <Form.Group className="mb-3" controlId="formBasicName">
+                <Form.Label>Nombre *</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Nombre"
+                  onChange={handleChange}
+                  onKeyDown={handleKeyDown}
+                  name="name_association"
+                  value={association.name_association}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicExtension">
+                <Form.Label>País *</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="país"
+                  onChange={handleChange}
+                  onKeyDown={handleKeyDown}
+                  name="country"
+                  value={association.country}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicExtension">
+                <Form.Label>Província *</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="província"
+                  onChange={handleChange}
+                  onKeyDown={handleKeyDown}
+                  name="province"
+                  value={association.province}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicExtension">
+                <Form.Label>Descripción *</Form.Label>
+                <Form.Control
+                  type="textarea"
+                  placeholder="Descripción"
+                  onChange={handleChange}
+                  onKeyDown={handleKeyDown}
+                  name="description"
+                  value={association.description}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicExtension">
+                <Form.Label>URL *</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="www.url.com"
+                  onChange={handleChange}
+                  onKeyDown={handleKeyDown}
+                  name="url"
+                  value={association.url}
+                />
+              </Form.Group>
+              <Form.Group controlId="formFile" className="mb-3">
+                <Form.Label>Imagen</Form.Label>
+                <Form.Control type="file" onChange={handleFile} />
+              </Form.Group>
+            </Form>
+            <Button
+              variant="primary"
+              type="submit"
+              className="bio-btn-primary"
+              onClick={handleFormSubmit}
+            >
+              Añadir
+            </Button>
+            <h3>{message}</h3>
+          </Col>
         </Row>
       )}
     </Container>

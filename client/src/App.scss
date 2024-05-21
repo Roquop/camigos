@@ -11,10 +11,9 @@
   position: relative;
   box-sizing: border-box;
 }
-body{
-  
+body {
 }
-#row_principal{
+#row_principal {
   display: flex;
   justify-content: center;
 }
@@ -24,10 +23,9 @@ body{
 #mainprincipal {
   flex-grow: 1;
 }
-
 #columna_principal {
-  min-height: calc(100vh - 240px*2);
-  padding: 1% !important;
+  min-height: calc(100vh - 240px * 2);
+  padding: 1%;
   // height: calc(100vh - 150px);
   width: 75vw;
   // overflow-y: scroll;
@@ -38,14 +36,14 @@ body{
   }
 }
 
-// Chrome, Safari, Edge, Opera 
+// Chrome, Safari, Edge, Opera
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-// Firefox 
+// Firefox
 input[type="number"] {
   -moz-appearance: textfield;
 }
@@ -86,7 +84,7 @@ body::-webkit-scrollbar {
   #columna_principal {
     width: 100%;
   }
-  #row_principal{
+  #row_principal {
     width: 100%;
   }
 }

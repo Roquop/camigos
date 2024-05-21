@@ -32,6 +32,10 @@
     }
   }
 }
+#crear_asociacion {
+  width: 81%;
+  margin: auto;
+}
 @media (max-width: 800px) {
   .division_perfil {
     flex-direction: column;
@@ -47,5 +51,8 @@
       flex-direction: column;
       width: 100%;
     }
+  }
+  #crear_asociacion {
+    width: 100%;
   }
 }

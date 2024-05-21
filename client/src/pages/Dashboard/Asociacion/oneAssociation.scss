@@ -3,6 +3,17 @@ img {
   width: 100%;
   object-fit: cover;
 }
+.deja_comentario {
+  textarea {
+    width: 100%;
+  }
+  h3 {
+    margin: 5px 0;
+  }
+  p{
+    margin: 0 auto;
+  }
+}
 #una_asociacion {
   display: flex;
   gap: 20px;
@@ -14,6 +25,30 @@ img {
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  a:hover {
+    background-color: rgb(33, 110, 127);
+    color: white;
+  }
+}
+.rating {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 2rem;
+}
+.on {
+  color: yellow;
+  text-shadow: 0px 0px 1px rgb(255, 255, 255), 0px 0px 15px white,
+    0px 0px 5px black;
+}
+.off {
+  color: #ccc;
 }
 .imagen_una_asociacion {
   display: flex;
@@ -26,7 +61,7 @@ img {
   border-radius: 15px;
   height: 200px;
   overflow-y: scroll;
-  p{
+  p {
     margin-top: 0;
   }
 }
@@ -44,6 +79,6 @@ img {
   }
 }
 #titulos_resenas {
-  margin-bottom:10px;
+  margin-bottom: 10px;
   margin-top: 30px;
 }
