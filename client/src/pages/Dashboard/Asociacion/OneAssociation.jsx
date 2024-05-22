@@ -14,6 +14,7 @@ export const OneAssociation = () => {
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(1);
   const [hover, setHover] = useState(0);
+  const [reloadComments, setReloadComments] = useState(false)
   const navigate = useNavigate();
 
   const publishComment = () => {
@@ -25,10 +26,10 @@ export const OneAssociation = () => {
         comment_text,
       })
       .then((res) => {
-        setAllComments(res.data);
         setRating(1);
         setHover(1);
         setComment("");
+        setReloadComments(true)
       })
       .catch((error) => console.log(error));
   };
@@ -49,11 +50,12 @@ export const OneAssociation = () => {
       .get(`${ruta}/association/getAllComments/${association_id}`)
       .then((res) => {
         setAllComments(res.data.result);
+        setReloadComments(false);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [reloadComments]);
 
   return (
     <Container>

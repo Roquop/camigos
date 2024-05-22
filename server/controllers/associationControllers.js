@@ -26,7 +26,7 @@ class associationControllers {
     }
     getAllComments = (req, res) => {
         const { association_id } = req.params
-        let sql = `SELECT name, comment_text, rating FROM user, comment WHERE association_id = ${association_id} AND user.user_id = comment.user_id;`;
+        let sql = `SELECT name, comment_text, rating FROM user, comment, association WHERE association_id = ${association_id} AND user.user_id = comment.user_id AND comment.association_id = association.association_id;`;
         connection.query(sql, (error, result) => {
             if (error) {
                 res.status(400).json({ error });
