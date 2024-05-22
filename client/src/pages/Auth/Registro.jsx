@@ -17,8 +17,7 @@ export const Registro = () => {
   const [user, setUser] = useState(initialValue);
   const navigate = useNavigate();
   const [messageError, setMessageError] = useState("");
-  const [confirmation, setConfirmation] = useState(            `Tu cuenta se ha registrado correctamente. ¡Inicia sesión para acceder a las ventajas de usuario! En breves momentos se te redirigirá a la página de inicio de sesión`
-);
+  const [confirmation, setConfirmation] = useState();
   //Aplicamos los valores de los input al objeto temporal
   const handleChange = (e) => {
     const { name, value } = e.target;
