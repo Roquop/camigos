@@ -33,6 +33,7 @@ export const Juego = () => {
   };
 
   useEffect(() => {
+    solved && alert("¡Puzzle resuelto! ¡Enhorabuena! Baja para iniciar un puzzle nuevo.")
     isLogged && solved && savePuzzle();
   }, [solved]);
 

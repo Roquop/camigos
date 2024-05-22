@@ -1,5 +1,5 @@
-button{
-    font-weight: bold;
+button {
+  font-weight: bold;
 }
 .jigsaw-puzzle {
   margin-bottom: 40px;
@@ -10,7 +10,7 @@ button{
 }
 .jigsaw-puzzle {
   border: 1px solid black;
-  width: 90%;
+  width: 50%;
 }
 .contenedor_puzzle {
   display: flex;
@@ -65,7 +65,7 @@ button{
 .imagen_referencia {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 50%;
   margin: 20px 0;
   button {
     background-color: rgba(33, 110, 127, 0.24);
@@ -87,30 +87,31 @@ button{
   .cuadradito {
     position: absolute;
     height: auto;
-    width: 20%;
+    width: 50%;
     top: 70px;
-    left: 10px;
+    left: 0;
+    transform: translateX(-100%);
     z-index: 2;
   }
 }
-.puzzle_resuelto{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    button {
-        background-color: rgba(33, 110, 127, 0.24);
-        border: none;
-        height: 40px;
-        cursor: pointer;
-        padding: 10px 20px;
-        border-radius: 25px;
-        margin: 20px auto;
-      }
-      button:hover {
-        filter: invert(100%);
-        color: white;
-      }
+.puzzle_resuelto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  button {
+    background-color: rgba(33, 110, 127, 0.24);
+    border: none;
+    height: 40px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin: 20px auto;
+  }
+  button:hover {
+    filter: invert(100%);
+    color: white;
+  }
 }
 @keyframes scale-animation {
   0% {
@@ -133,9 +134,25 @@ button{
       }
     }
   }
-  .p_instrucciones, .instrucciones p {
-      text-align: center;
-      width: 90%;
-      margin: auto;
+  .p_instrucciones,
+  .instrucciones p {
+    text-align: center;
+    width: 90%;
+    margin: auto;
+  }
+  .jigsaw-puzzle {
+    width: 100%;
+  }
+  .imagen_referencia {
+    width: 100%;
+    .cuadradito {
+      position: absolute;
+      height: auto;
+      width: 100%;
+      top: -20px;
+      left: 0;
+      transform: translateY(-100%);
+      z-index: 2;
+    }
   }
 }
