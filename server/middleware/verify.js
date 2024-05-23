@@ -14,6 +14,7 @@ const verify = (req, res, next) => {
     return res.status(401).json("Token no valido");
   }
   //Esto nos permite ver si tenemos el token o no para pasar la información en la función en la que llamemos y si es correcto.
+  //Podemos saltarnos la carpeta de node_modules e ir directamente a ../routes/users.admin.js
   jwt.verify(token, process.env.SECRET, (error, decoded) => {
     console.log(token)
     console.log(process.env.SECRET)

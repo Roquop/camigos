@@ -31,3 +31,5 @@ router.post("/savePuzzle/:user_id", userControllers.savePuzzle)
 router.get("/getAllPuzzles/:user_id", userControllers.getAllPuzzles)
 
 module.exports = router;
+
+//De aquí podemos pasar al último archivo comentado, en ../../app.js, al mismo nivel que /routes

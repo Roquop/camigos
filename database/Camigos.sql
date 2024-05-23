@@ -1,4 +1,5 @@
 -- Esta es el script que he utilizado para crear la base de datos, con lo que se podría replicar. Podría haber incluido los cambios directamente en el create table, pero he decidido dejar las secuencias alter TABLE para que se vea la progresión.
+-- De aquí podemos pasar directamente al archivo dentro de server>bin>www
 
 CREATE DATABASE camigos;
 use camigos;

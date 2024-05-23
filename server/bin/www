@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-//Aquí he modificado solo el puerto, haciendo que coja el del archivo .env o el puerto 4000 si no hay ninguno
+//Aquí he modificado solo el puerto, haciendo que coja el del archivo .env o el puerto 4000 si no hay ninguno. El resto de comentarios vienen creados al crear el back con express
 /**
  * Module dependencies.
  */
