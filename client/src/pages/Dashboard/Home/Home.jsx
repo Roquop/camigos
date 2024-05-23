@@ -5,6 +5,7 @@ import { Button, Card, Container, Form, Col, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { ruta } from "../../../helpers/backOrigin/rutaBack";
 
+//la Home, a la que se llega con el icono.
 export const Home = () => {
   const [associationList, setAssociationList] = useState([]);
   const [filteredAssociations, setFilteredAssociations] = useState([]);
@@ -13,6 +14,7 @@ export const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
+  //Llamamos a todas las asociaciones y las seteamos en la lista y la lista para filtrar
   useEffect(() => {
     axios
       .get(`${ruta}/association/getAllAssociations`)
@@ -25,18 +27,20 @@ export const Home = () => {
       });
   }, []);
 
+  //El filtro según provincia, que hará que según lo que seleccionamos en province se setee en filteredAssociation si coincide con la provincia puesta en el nombre de la asociación. También seteamos el límite de asociaciones a 4 para reiniciar el número que se ve en pantalla.
   const filterByProvince = (province) => {
+    //como antes, también seteamos el valor que irá dentro del {value} del input, para que corrresponda lo que hacemos en pantalla  con lo que se ve.
     setProvinceFilter(province);
     if (province === "") {
       setFilteredAssociations(associationList);
     } else {
       setFilteredAssociations(
-        associationList.filter((assoc) => assoc.province === province)
+        associationList.filter((assoc) => assoc.province == province)
       );
     }
     setAssociationsLimit(4);
   };
-
+//la función para la búsqueda de asociaciones. Guardamos el término, lo pasamos todo a mayúsculas y vemos si coincide parte de lo introducido en el input, y volvemos a setear a 4.
   const searchAssociations = (term) => {
     setSearchTerm(term);
     setFilteredAssociations(
@@ -47,6 +51,7 @@ export const Home = () => {
     setAssociationsLimit(4);
   };
 
+  //Simplemente para ordenarlas por nombre, utilizando el famoso sort de .js que aprendimos a usar en programación web, haciendo que compare los dos nombres y coja el primero y lo mande al principio del array.
   const sortByName = () => {
     setFilteredAssociations((prevAssociations) =>
       [...prevAssociations].sort((a, b) =>
@@ -98,6 +103,7 @@ export const Home = () => {
             type="text"
             placeholder="Buscar asociaciones..."
             value={searchTerm}
+            //En este caso, pasamos directamente el e.target.value, que recibiremos como term en la función, ya que no necesitamos nada más del evento.
             onChange={(e) => searchAssociations(e.target.value)}
             className="filtro buscar"
           />
@@ -107,6 +113,7 @@ export const Home = () => {
             {filteredAssociations &&
               filteredAssociations.slice(0, associationsLimit).map((elem) => {
                 return (
+                  //mapeamos las asociaciones según el límite definido arriba, usando slice que cogerá solamente lo que haya entre el primer y el segundo número definido, el primero siendo 0 y el segundo siendo 4, el cual aumentará si pulsamos el botón "+"
                   <Card
                     className="asociacion"
                     key={elem.association_id}
@@ -132,6 +139,7 @@ export const Home = () => {
           <Col className="boton_mas_col">
             <Button
               className="boton_mas"
+              //Hacemos que directamente setee a +4 sin necesidad de llamar a una función externa.
               onClick={() => setAssociationsLimit(associationsLimit + 4)}
             >
               +

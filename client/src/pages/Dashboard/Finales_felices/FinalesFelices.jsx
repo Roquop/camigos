@@ -2,7 +2,7 @@ import React from "react";
 import "./finalesFelices.scss";
 import { useNavigate } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
-
+//Una página sencilla también. Si la aplicación se siguiese desarrollando, podría hacerse que los animales se trajeran con una base de datos por ejemplo, y que tuvieran un estado de "adoptado" o "en adopción" de manera que pasaran directamente a esta sección, por ejemplo. Hacemos que la parte de la asociación sea interactiva para poder ir a ver esa maravillosa asociación que consiguió que el perro fuera adoptado.
 export const FinalesFelices = () => {
   const navigate = useNavigate();
   return (

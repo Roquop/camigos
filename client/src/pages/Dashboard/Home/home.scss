@@ -1,3 +1,4 @@
+//Todo cosas que hemos hecho anteriormente.
 h1 {
   text-align: center;
 }
@@ -8,7 +9,7 @@ h1 {
 #columna_principal .bienvenida::before {
   width: 102%;
   height: 100%;
-  top:0;
+  top: 0;
   left: 0;
   position: absolute;
   content: "";
@@ -115,11 +116,12 @@ h1 {
       object-fit: cover;
     }
     p {
+      //Los elementos necesarios para limitar el número de líneas de las asociaciones a 3, para guardar una estética común.
       text-align: left;
-      display: -webkit-box; /* Usar el modelo de caja flex para Webkit */
-      -webkit-box-orient: vertical; /* Orientación vertical */
-      -webkit-line-clamp: 3; /* Limitar a 3 líneas */
-      overflow: hidden; /* Ocultar el contenido que exceda */
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
       text-overflow: ellipsis;
     }
     h3 {
@@ -129,11 +131,11 @@ h1 {
       align-items: center;
       justify-content: center;
     }
-    h4{
+    h4 {
       margin-bottom: 20px;
     }
   }
-  .asociacion.card{
+  .asociacion.card {
     border: 5px solid transparent;
   }
   .asociacion.card:hover {

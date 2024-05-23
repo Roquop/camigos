@@ -1,11 +1,10 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Col, Container, Row, Form, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 import "./myUser.scss";
 import { CamigosContext } from "../../../context/CamigosContext";
 import { ruta } from "../../../helpers/backOrigin/rutaBack";
-
+//En esta página la mayoría ya lo hemos visto todo lo que se hace en ella en las páginas precedentes
 let initialAssociation = {
   name_association: "",
   country: "",
@@ -15,13 +14,13 @@ let initialAssociation = {
 };
 export const MyUser = () => {
   const [comments, setComments] = useState([]);
-  const navigate = useNavigate();
   const { user } = useContext(CamigosContext);
   const [association, setAssociation] = useState(initialAssociation);
   const [associationFile, setAssociationFile] = useState();
   const [message, setMessage] = useState("");
   const [puzzlesArray, setPuzzlesArray] = useState([]);
 
+  //window.open permite permite abrir la dirección indicada y el _blank nos sirve para página nueva. en imagen está guardada la dirección url de la imagen a la que clicamos.
   const openImage = (imagen) => {
     window.open(imagen, "_blank");
   };
@@ -31,6 +30,7 @@ export const MyUser = () => {
     setAssociation({ ...association, [name]: value });
   };
 
+  //handle file guardará la imagen para poder crear la asociación
   const handleFile = (e) => {
     console.log(e);
     setAssociationFile(e.target.files);
@@ -44,9 +44,9 @@ export const MyUser = () => {
     }
   };
 
+  //preventDefault evita que se actualice la página, lo cual sería un problema trabajando con React en una página subida a producción, y newFormData nos permite adjuntar la imagen que hayamos guardado, en nuestro caso en la variable associationFile, en el objeto FormData(), que crea el objeto que se adjuntará al form y luego pondremos con .append
   const handleFormSubmit = (e) => {
     e.preventDefault();
-
     if (
       association.name_association === "" ||
       association.country === "" ||
@@ -62,7 +62,7 @@ export const MyUser = () => {
           newFormData.append("file", file);
         }
       }
-
+//Aquí hacemos que a la data del formulario se adjunte también la información de la asociación
       newFormData.append("newAssociation", JSON.stringify(association));
 
       e.preventDefault();
@@ -81,11 +81,11 @@ export const MyUser = () => {
     e.preventDefault();
   };
 
+  //hacemos un get con los comentarios y los puzzles del usuario para pintarlos luego.
   useEffect(() => {
     axios
       .get(`${ruta}/users/getAllComments/${user.user_id}`)
       .then((res) => {
-        // Setea el estado user con esa información
         setComments(res.data.result);
       })
       .catch((error) => {
@@ -97,7 +97,6 @@ export const MyUser = () => {
     axios
       .get(`${ruta}/users/getAllPuzzles/${user.user_id}`)
       .then((res) => {
-        // Setea el estado user con esa información
         setPuzzlesArray(res.data.result);
       })
       .catch((error) => {
@@ -105,6 +104,7 @@ export const MyUser = () => {
       });
   }, []);
 
+  //Y en el html, de nuevo, nada nuevo! tan solo hacemos un mapeo de los puzzles, y de los comentarios para pintarlos en la página, y hacemos los inputs para poder crear una nueva asociación de manera sencilla.
   return (
     <Container>
       <Row className="division_perfil">

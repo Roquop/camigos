@@ -1,4 +1,4 @@
-
+//El css para dar estilo, donde quizá lo más llamativo son las propiedades relacionadas con el carousel de imágenes, que la verdad simplemente han sido copia-pega de las intruscciones dadas en la página de react-bootstrap ya que es lo que estamos usando.
 .carousel-container {
   display: flex;
   overflow-x: auto;
@@ -13,7 +13,7 @@
   cursor: pointer;
 }
 .carousel-image {
-  max-height: 200px; /* Ajusta según tus necesidades */
+  max-height: 200px;
   width: auto;
   border-radius: 8px;
 }

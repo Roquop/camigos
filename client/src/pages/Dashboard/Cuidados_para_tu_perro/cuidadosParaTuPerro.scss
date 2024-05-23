@@ -1,5 +1,5 @@
 #cuidados_para_tu_perro{
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 .dato_curioso {
   border: 3px solid black;
@@ -16,7 +16,7 @@
     font-weight: normal;
     font-size: 35px;
     cursor: pointer;
-    user-select: none; /* Standard syntax */
+    user-select: none;
     background-color: #22809D;
     color: white;
     text-shadow: 1px 1px 1px black, -1px 1px 1px black, 1px -1px 1px black, -1px -1px 1px black;
@@ -26,7 +26,7 @@
   .desplegable {
     background-color: #def3fa;
     padding: 20px;
-
+    
   }
   p{
     text-align: justify;
@@ -42,23 +42,24 @@ h3 {
 .show {
   display: block;
 }
+//Las imágenes decorativas están puestas con medidas relativas a la pantalla para que siempre guarden la relación y se vean cuadradas.
 .imagenes_cuidados{
-    padding-top: 30px;
+  padding-top: 30px;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  .imagen_perro{
     display: flex;
-    justify-content:space-around;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    .imagen_perro{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 24%;
-        height: 100%;
-        object-fit: contain;
-        img{
-            border: 1px solid black;
-            padding: 5px;
-            width: 18vw;
+    width: 24%;
+    height: 100%;
+    object-fit: contain;
+    img{
+      border: 1px solid black;
+      padding: 5px;
+      width: 18vw;
             height: 18vw;
             max-width: 500px;
             max-height: 500px;

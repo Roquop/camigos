@@ -81,6 +81,7 @@
     z-index: 2;
   }
 }
+//Usamos el pseudo elemento after o before para crear una "capa" al elemento que ocupe su mismo sitio al darle el estilo. En este caso, hacemos que toda la parte debajo del "modal" se oscurezca.
 .register-user::before {
   content: "";
   position: fixed;

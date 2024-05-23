@@ -1,3 +1,5 @@
+//Damos estilo para colocar las imágenes y el texto del footer.
+// Al usar .scss, podemos anidar las secciones, lo que nos permite tener una mejor organización de lo estilos.
 #footer {
   background-color: rgb(14, 14, 14);
   width: 100%;
@@ -7,16 +9,21 @@
     height: 200px;
     align-items: center;
     justify-content: space-around;
+    //hacemos que salga la mano al pasar por encima de los iconos y que se vea el reflejo blanco
     img {
       width: 75px;
+      cursor: pointer;
+    }
+    img:hover {
+      filter: drop-shadow(0px 0px 10px white);
     }
   }
-  .disclaimer {
-    display: flex;
-    justify-content: space-around;
-    p {
-      color: white;
-      text-align: center;
-    }
+}
+.disclaimer {
+  display: flex;
+  justify-content: space-around;
+  p {
+    color: white;
+    text-align: center;
   }
 }

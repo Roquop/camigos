@@ -1,3 +1,4 @@
+//Estilos con contenedores flex y bootstrap, de nuevo nada nuevo en esta parte.
 img {
   height: 100%;
   width: 100%;
@@ -66,6 +67,7 @@ img {
   width: 50%;
   height: 40vh;
 }
+//En esta parte cambiamos el comportaiento si hay desbordamiento en el eje Y, de forma que podamos tener una sección con tamaño fijo y poder ir scrolleando a través, como definimos en el Figma.
 .comentarios_asociacion {
   border: 2px solid black;
   padding: 10px;

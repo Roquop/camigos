@@ -14,8 +14,9 @@ import { OneAssociation } from "../pages/Dashboard/Asociacion/OneAssociation";
 import { CamigosContext } from "../context/CamigosContext";
 import { MyUser } from "../pages/Dashboard/User/MyUser";
 
+//Aquí es donde definimos las rutas a las que podremos apuntar nuestras páginas, estableciéndolas dentro de <Route>. En el caso de la Route MyUser/:user_id, vemos que si intentamos acceder sin estar logueados no podremos, lo cual dará un error de navegación.
 export const CamigosBrowser = () => {
-  const { user, isLogged } = useContext(CamigosContext);
+  const { isLogged } = useContext(CamigosContext);
 
   return (
     <Container>

@@ -3,6 +3,7 @@ import "./cuidadosParaTuPerro.scss";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import axios from "axios";
 
+//En esta hemos abordado de otra manera la forma de enseñar las secciones, en vez de una función que recogiese el evento y diese la clase, se ha definido una por una. A largo plazo está claro que es más eficiente lo que hemos hecho en otras secciones, pero esta fue de las primeras y estaba aprendiendo, con más tiempo se podría refactorizar, pero me concentré mucho en la función de traducir porque me dio mucho trabajo.
 export const CuidadosParaTuPerro = () => {
   const [consejo, setConsejo] = useState("");
   const [loading, setLoading] = useState(true);
@@ -14,6 +15,7 @@ export const CuidadosParaTuPerro = () => {
   const [showEnfermedades, SetShowEnfermedades] = useState(false);
   const [showHigiene, SetShowHigiene] = useState(false);
 
+  //En esta función llamamos a la API externa que nos trae los datos curiosos sobre perros, se ha hecho con try catch para poder controlar mejor lo que pasa, ya que tenemos que primero llamar a la api y guardar la información en "consejoInglés", de ahí tenemos que hacer un await para que el sistema espere la resolución del post del axios antes de continuar, y siguiendo las instrucciones de la API, introdujimos los datos en la dirección url especificando lenguaje de origen y destino según su nomenclatura, codificamos la frase en un componente con el lenguaje legible para la misma, y recibimos la traducción en otra variable, que setearemos en consejo.
   useEffect(() => {
     const fetchData = async () => {
       let consejoIngles;
@@ -30,6 +32,7 @@ export const CuidadosParaTuPerro = () => {
         const traduccion = traduccionResponse.data[0][0][0];
         setConsejo(traduccion);
         setAviso("");
+        //Aquí hemos introducido esta parte, en la que a veces por hacer demasiadas demandas no se veía el consejo, así que metemos un mensaje de información
       } catch (error) {
         console.log(error);
         setConsejo(consejoIngles);
@@ -40,10 +43,9 @@ export const CuidadosParaTuPerro = () => {
         setLoading(false);
       }
     };
-
     fetchData();
   }, []);
-
+//Y aquí todo lo que hacemos ya lo hemos hecho antes también. son secciones con mucho texto que simplemente setearán show o hide para desplegarse.
   return (
     <Container id="cuidados_para_tu_perro">
       <Row>
