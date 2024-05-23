@@ -1,9 +1,9 @@
 -- Esta es el script que he utilizado para crear la base de datos, con lo que se podría replicar. Podría haber incluido los cambios directamente en el create table, pero he decidido dejar las secuencias alter TABLE para que se vea la progresión.
--- De aquí podemos pasar directamente al archivo dentro de server>bin>www
 
 CREATE DATABASE camigos;
 use camigos;
 
+-- Al crear la tabla creamos el identificativo único y el resto de campos al que le damos el tipo de archivo que contendrá (array, números...) lo más destacable es que, basándonos en los consejos de la asignatura de bases de datos, creamos el campo deleted para hacer lo que se llama un borrado lógico en el que conservamos los datos pero no los pintamos, ya que en los controladores ponemos la condición deleted = 0 para indicar que se pinten los datos que no estén marcados como borrados. Si se implantara en producción, sería más complejo por tema de protección de datos y habría que investigar más la manera en la que poder conservar datos para hacer estadística respetando los datos privados al mismo tiempo.
 CREATE TABLE user (
     user_id MEDIUMINT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     name VARCHAR(100) NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE user (
     type TINYINT(1) DEFAULT 0 NOT NULL,
     deleted TINYINT(1) DEFAULT 0 NOT NULL
 );
-
+-- La línea "constraint" hace referencia a la relación entre tablas, indicando qué campo de la tabla es el que está relacionado con un campo externo, en este caso relacionamos el user_id con el user_id de user
 CREATE TABLE association (
     association_id SMALLINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     owner_user_id MEDIUMINT UNSIGNED NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE association (
     CONSTRAINT fk_user_1 FOREIGN KEY (owner_user_id)
         REFERENCES user (user_id)
 );
-
+-- Igual que antes, pero en este caso relacionamos con datos de dos tablas externas
 CREATE TABLE comment (
     comment_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     user_id MEDIUMINT UNSIGNED NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE puzzle (
         REFERENCES user (user_id)
 );
 
--- La contraseña es "admin@admin.com"
+-- La contraseña es "admin@admin.com" para el usuario admin.
 INSERT INTO user (name, lastname, email, password, phone, user_img, type, deleted)
 VALUES ('admin', 'admin','admin@admin.com', '$2a$08$9nED5MMmLmd/lt6zoajWaO6uJG6YIofmHfMWkHzGVTKL5R6085As2', '11111111A', 'foto.png', 2, 0);
 INSERT INTO user (name, lastname, email, password, phone, user_img, type, deleted)
@@ -76,3 +76,4 @@ INSERT INTO comment (user_id, association_id, comment_text, rating) VALUES (1, 2
 
 SELECT name, comment_text, rating FROM user, comment WHERE association_id = 14 AND user.user_id = comment.user_id;
 SELECT * FROM user WHERE email = 'resuelve@resuelve.com'
+-- De aquí podemos pasar directamente al archivo dentro de server>bin>www
