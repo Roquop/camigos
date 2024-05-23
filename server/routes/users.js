@@ -1,5 +1,4 @@
 var express = require("express");
-const multerSingle = require("../middleware/multerSingle");
 const userControllers = require("../controllers/userControllers");
 var router = express.Router();
 
@@ -7,18 +6,19 @@ var router = express.Router();
 //localhost:4000/users/register
 router.post("/register", userControllers.register)
 
+// Hacer login
 //localhost:4000/users/login
 router.post(`/login`, userControllers.login)
 
+// Traer la información de un usuario
 //localhost:4000/users/getOneuser/:user_id
 router.get("/getOneUser/:user_id", userControllers.getOneUser)
-module.exports = router;
 
+// Traer todos los comentarios hechos por un usuario
 //localhost:4000/users/getAllComments/:user_id
 router.get("/getAllComments/:user_id", userControllers.getAllComments)
-module.exports = router;
 
-// Postear un comentario
+// Postear un comentario en una asociación, aquí requerimos dos parámetros
 //localhost:4000/users/postComment/:user_id/:association_id
 router.post("/postComment/:user_id/:association_id", userControllers.postComment)
 
@@ -29,3 +29,5 @@ router.post("/savePuzzle/:user_id", userControllers.savePuzzle)
 // Ver todos los puzzles
 //localhost:4000/users/getAllPuzzles/:user_id/
 router.get("/getAllPuzzles/:user_id", userControllers.getAllPuzzles)
+
+module.exports = router;

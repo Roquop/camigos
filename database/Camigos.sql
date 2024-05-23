@@ -1,3 +1,5 @@
+-- Esta es el script que he utilizado para crear la base de datos, con lo que se podría replicar. Podría haber incluido los cambios directamente en el create table, pero he decidido dejar las secuencias alter TABLE para que se vea la progresión.
+
 CREATE DATABASE camigos;
 use camigos;
 
@@ -10,7 +12,7 @@ CREATE TABLE user (
     phone VARCHAR(20) DEFAULT NULL,
     user_img VARCHAR(150) DEFAULT NULL,
     type TINYINT(1) DEFAULT 0 NOT NULL,
-    deleted TINYINT(1) DEFAULT 1 NOT NULL
+    deleted TINYINT(1) DEFAULT 0 NOT NULL
 );
 
 CREATE TABLE association (
@@ -69,4 +71,7 @@ SELECT * from association WHERE association_id = 1;
 INSERT INTO `camigos`.`comment`(`user_id`,`association_id`, `comment_text`, `rating`) VALUES ( 2, 1, 'Tenía mucho miedo porque oí hablar mal de algunas asociaciones, pero esta me ayudó mucho y su web está llena de recursos', 3);
 SELECT name, comment_text, rating FROM user, comment WHERE association_id = 1 AND user.user_id = comment.user_id;
 SELECT comment_text, name_association, rating FROM comment, association, user WHERE comment.user_id = 2 and  comment.association_id = association.association_id and comment.user_id = user.user_id ;
-INSERT INTO comment (user_id, association_id, comment_text, rating) VALUES (1, 2, 'esta asociación es la mejor claramente', '5')
+INSERT INTO comment (user_id, association_id, comment_text, rating) VALUES (1, 2, 'esta asociación es la mejor claramente', '5');
+
+SELECT name, comment_text, rating FROM user, comment WHERE association_id = 14 AND user.user_id = comment.user_id;
+SELECT * FROM user WHERE email = 'resuelve@resuelve.com'

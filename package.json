@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "react-draggable": "^4.4.6",
-    "react-jigsaw-puzzle": "^1.0.5"
+    "react-jigsaw-puzzle": "^1.0.5",
+    "react-lazyload": "^3.2.1"
   }
 }
