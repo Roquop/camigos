@@ -1,4 +1,9 @@
 //Todo cosas que hemos hecho anteriormente.
+.filtros{
+  button{
+    min-height: 40px;
+  }
+}
 h1 {
   text-align: center;
 }
@@ -162,9 +167,6 @@ h1 {
       width: 20%;
       background-color: transparent;
       border: 1px solid black;
-    }
-    button{
-      height: 40px;
     }
   }
   .associations_container {
