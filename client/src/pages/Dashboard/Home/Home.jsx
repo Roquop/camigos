@@ -40,7 +40,7 @@ export const Home = () => {
     }
     setAssociationsLimit(4);
   };
-//la función para la búsqueda de asociaciones. Guardamos el término, lo pasamos todo a mayúsculas y vemos si coincide parte de lo introducido en el input, y volvemos a setear a 4.
+  //la función para la búsqueda de asociaciones. Guardamos el término, lo pasamos todo a mayúsculas y vemos si coincide parte de lo introducido en el input, y volvemos a setear a 4.
   const searchAssociations = (term) => {
     setSearchTerm(term);
     setFilteredAssociations(
@@ -59,7 +59,7 @@ export const Home = () => {
       )
     );
   };
-
+  console.log(filteredAssociations.length, "este");
   return (
     <Container className="main_container">
       <Row className="bienvenida">
@@ -108,6 +108,15 @@ export const Home = () => {
             className="filtro buscar"
           />
         </Col>
+
+        {filteredAssociations.length == 0 && (
+          //Si no hay asociaciones aún, aparece la animación de cargando
+          <Col className="loader_container">
+            <p>Cargando las asociaciones...</p>
+            <div className="loader"></div>
+          </Col>
+        )}
+
         <Col>
           <div className="associations_container">
             {filteredAssociations &&
